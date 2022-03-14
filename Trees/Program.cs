@@ -6,44 +6,35 @@ namespace Trees
     {
         static void Main(string[] args)
         {
-            var rootNode = new Node
+            var treeOne = new Node(25)
             {
-                Data = 25,
-                LeftNode = new Node
+                LeftNode = new Node(10)
                 {
-                    Data = 10,
-                    LeftNode = new Node
-                    {
-                        Data = 15,
-                    },
-                    RightNode = new Node
-                    {
-                        Data = 10
-                    }
+                    LeftNode = new Node(15),
+                    RightNode = new Node(10)
                 },
-                RightNode = new Node
+                RightNode = new Node(15)
                 {
-                    Data = 15,
-                    LeftNode = new Node
-                    {
-                        Data = 15,
-                    },
-                    RightNode = new Node
-                    {
-                        Data = 10
-                    }
+                    LeftNode = new Node(15),
+                    RightNode = new Node(10)
                 }
             };
-            
-            Console.WriteLine($"Tree sum: {GetTreeSum(rootNode)}");
+
+            Console.WriteLine($"Tree sum from treeOne: {treeOne.GetTreesum(treeOne)}");
+
+            var treeTwo = new Node(5)
+            {
+                LeftNode = new Node(8),
+                RightNode = new Node(10)
+                {
+                    RightNode = new Node(12)
+                }
+            };
+
+            treeTwo.Insert(9);
+
+            Console.WriteLine($"Tree sum from treeTwo with new insert: {treeTwo.GetTreesum(treeTwo)}");
             Console.ReadLine();
-        }
-
-        private static int GetTreeSum(Node rootNode)
-        {
-            if (rootNode == null) return 0;
-
-            return rootNode.Data + GetTreeSum(rootNode.LeftNode) + GetTreeSum(rootNode.RightNode);
         }
     }
 }
