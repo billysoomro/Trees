@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System;
 
 namespace Trees
 {
@@ -53,6 +53,51 @@ namespace Trees
             if (tree == null) return 0;
 
             return tree.Data + GetTreesum(tree.LeftNode) + GetTreesum(tree.RightNode);
+        }
+
+        public void PrintInOrderTraversal(Node tree)
+        {
+            if (tree.LeftNode != null)
+            {
+                PrintInOrderTraversal(tree.LeftNode);
+            }
+
+            Console.WriteLine(tree.Data);
+
+            if (tree.RightNode != null)
+            {
+                PrintInOrderTraversal(tree.RightNode);
+            }
+        }
+
+        public void PrintPreOrderTraversal(Node tree)
+        {
+            Console.WriteLine(tree.Data);
+
+            if (tree.LeftNode != null)
+            {
+                PrintInOrderTraversal(tree.LeftNode);
+            }
+
+            if (tree.RightNode != null)
+            {
+                PrintInOrderTraversal(tree.RightNode);
+            }
+        }
+
+        public void PrintPostOrderTraversal(Node tree)
+        {
+            if (tree.LeftNode != null)
+            {
+                PrintInOrderTraversal(tree.LeftNode);
+            }
+
+            if (tree.RightNode != null)
+            {
+                PrintInOrderTraversal(tree.RightNode);
+            }
+
+            Console.WriteLine(tree.Data);
         }
     }
 }

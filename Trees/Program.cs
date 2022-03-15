@@ -31,9 +31,21 @@ namespace Trees
                 }
             };
 
+            Console.WriteLine($"Tree sum from treeTwo before insert: {treeTwo.GetTreesum(treeTwo)}");
+            
             treeTwo.Insert(9);
+            
+            Console.WriteLine($"Tree sum from treeTwo after insert: {treeTwo.GetTreesum(treeTwo)}");
 
-            Console.WriteLine($"Tree sum from treeTwo with new insert: {treeTwo.GetTreesum(treeTwo)}");
+            Console.WriteLine("Inorder tree traversal of treeTwo");
+            treeTwo.PrintInOrderTraversal(treeTwo);
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Preorder tree traversal of treeTwo");
+            treeTwo.PrintPreOrderTraversal(treeTwo);
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Postorder tree traversal of treeTwo");
+            treeTwo.PrintPostOrderTraversal(treeTwo);
+
             Console.ReadLine();
         }
     }
